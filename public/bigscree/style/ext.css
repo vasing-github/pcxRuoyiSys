@@ -1,0 +1,35 @@
+﻿.phb li span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 0% !important;
+    background: none !important;
+}
+.phb li span .txt {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    padding-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    /* line-height: 38px; */
+    overflow: hidden;
+}
+
+.phb li span .bg {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 20%;
+    background: #00c0c5;
+    z-index: 1;
+}

@@ -1,0 +1,42 @@
+/*公共样式*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin:0;
+    padding:0;
+    border: none;
+    outline: none;
+}
+html,body {
+    height: 100%;
+}
+body {
+    font-family: Arial,"Microsoft YaHei";
+    color:#333;
+
+}
+ul,ol {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+a {
+    color:#333;
+    text-decoration: none !important;
+}
+a:hover {
+    color:#1c5bb8;
+}
+em,i {
+    font-style: normal;
+}
+input,select,textarea,button{
+    outline: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    border:none;
+    font-family: "Microsoft YaHei";
+}
+
+table{
+    border-collapse: collapse;
+}

@@ -1,0 +1,175 @@
+﻿
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>平昌县疫情防控信息平台大数据分析系统</title>
+    <link rel="stylesheet" href="style/default.css?v=20201021">
+    <link rel="stylesheet" href="style/new-platform.css?v=20201021">
+    <link rel="stylesheet" href="style/ext.css?v=20201021" />
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.SuperSlide.2.1.3.js"></script>
+    <script src="js/layer/mobile/layer.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/echarts-tooltip-carousel.js?v=20201021"></script>
+    <script src="js/jquery.common.js?v=20201021"></script>
+</head>
+
+<body>
+    <div style="width:100%;height:100%;overflow:hidden;">
+        <h2 class="platform-title" style="height:107px;">
+            <span class="logo"><!--<img src="images/logo.png" height="80" alt="">--></span>平昌县疫情防控信息平台大数据分析系统
+        </h2>
+        <div class="time-week" id="showTime"><!--2020年05月16日 星期二 20℃ 天气多云--></div>
+        <div class="time-change" style="display:none;">统计时间：<input id="hidMonth" onclick="WdatePicker({dateFmt:'yyyy年MM月',Mchanged:dateChange, ychanged:dateChange})" value="" style="background-color:transparent;color:#fff;width:160px;font-size:26px;" /></div>
+
+        <div class="bjl-db">
+
+            <ul class="overflow">
+                <li class="wrap">
+                    <span class="common">
+                        <span>本月返平：<i class="blue-" id="totalNum">0</i>人</span>
+                    </span>
+                </li>
+                <li class="wrap">
+                    <span class="common">
+                        <span>今日报备：<i class="blue-" id="totalBackNum">0</i>人，</span>
+                        <span>今日返平：<i class="blue-" id="totalBackNum">0</i>人</span>
+                    </span>
+                </li>
+                <li class="wrap">
+                    <span class="common">
+                        <span>今日待管：<i class="blue-" id="totalOutNum" style="color:#ff0000">0</i>人，</span>
+                        <span>今日在管：<i class="blue-" id="totalOutNum" style="color:#ffd800">0</i>人，</span>
+                        <span>今日解除：<i class="blue-" id="totalOutNum" style="color:#00ff21">0</i>人</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="overflow">
+            <div class="fl-l">
+                <div class="today-inform wrap">
+                    <div class="common" id="kksjBox" style="height:380px;">
+                        <!--<h3>卡口实时数据</h3>
+                        <ul class="infoList">
+                            <li>东互通<span id="todayBackDongNum">0</span>人</li>
+                            <li>西互通<span id="todayBackXiNum">0</span>人</li>
+                            <li>驷马互通<span id="todayBackSiMaNum">0</span>人</li>
+                            <li>青凤互通<span id="todayBackQingFengNum">0</span>人</li>
+                            <li>火车站<span id="todayBackTrainNum">0</span>人</li>
+                        </ul>-->
+                    </div>
+                </div>
+
+                <div class="item-list pig wrap top25">
+                    <div class="common" id="fpqyBox" style="height:390px;">
+
+                    </div>
+                </div>
+            </div>
+            <div class="map wrap" style="height: 805px;">
+                <div class="common">
+                    <h4>返平人员出发区域分布</h4>
+                    <div id="mapcontainer" style="height:750px;"></div>
+                </div>
+            </div>
+            <div class="fl-3">
+                <div class="cur-month wrap">
+                    <div class="common">
+                        <h4>到平区域分布</h4>
+                        <div id="bjn2" style="height: 750px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fl-4">
+                <div class="showMsg wrap">
+                    <div class="common" style="height:380px;">
+                        <h4>实时信息</h4>
+                        <div class="txtMarquee-top">
+                            <div class="bd" style="height:315px;">
+                                <ul class="infoList">
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                    <li><span class="name">张三三</span><span>从</span><span class="area">新疆维吾尔自治区治区</span><span>返平</span><span>青凤互通</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-list pig wrap top25">
+                    <div class="common" style="height:390px;">
+                        <h4>到平区域分布</h4>
+                        <div class="txtMarquee3-top">
+                            <div class="bd">
+                                <ul class="infoList" id="listBackAreaSort">
+                                    <li><span>新疆维吾尔自治区（200人）</span><i>1</i></li>
+                                    <li><span>四川（200人）</span><i>2</i></li>
+                                    <li><span>四川（200人）</span><i>3</i></li>
+                                    <li><span>四川（200人）</span><i>4</i></li>
+                                    <li><span>四川（200人）</span><i>5</i></li>
+                                    <li><span>新疆维吾尔自治区（200人）</span><i>1</i></li>
+                                    <li><span>四川（200人）</span><i>2</i></li>
+                                    <li><span>四川（200人）</span><i>3</i></li>
+                                    <li><span>四川（200人）</span><i>4</i></li>
+                                    <li><span>四川（200人）</span><i>5</i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/r-data-listsort.js"></script>
+    <script src="js/e-map-fk.js?v=20201021"></script>
+    <script src="js/e-town-map-fk.js?v=20201021"></script>
+    <script src="js/e-fpqy-fk.js"></script>
+    <script src="js/e-kksj-fk.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var date = new Date();
+            var year = $.GetQueryString("y");
+            var month = $.GetQueryString("m");
+            if (!!!year) {
+                year = date.getFullYear();
+            }
+            if (!!!month) {
+                month = date.getMonth() + 1;
+            }
+            $("#hidMonth").val(year + "年" + month + "月");
+            $("#showTime").showDateTime();
+            loadData();
+            window.setInterval(loadData, 1000 * 60 * 10);
+            $(window).resize(function () {
+                //延迟执行,防止多次触发
+                setTimeout(function () {
+                    location.href = location.href;
+                }, 100);
+            });
+        })
+        function dateChange() {
+            location.href = "index2.html?y=" + $dp.cal.newdate.y + "&m=" + $dp.cal.newdate.M;
+        }
+
+        function loadData() {
+            intKKSJ();
+            loadBackArea();
+            intTownMap();
+            intChinaMap();
+            intFPQY();
+        }
+    </script>
+</body>
+</html>

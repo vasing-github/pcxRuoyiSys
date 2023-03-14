@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>信息填报-在外平昌人信息服务平台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link href="css/weui.css" rel="stylesheet" />
+    <link href="css/weuix.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/zepto.min.js"></script>
+    <script src="js/zepto.weui.js"></script>
+    <script src="js/picker.city.pc.js"></script>
+    <script src="js/common.action.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/page.form.js"></script>
+    <script type="text/javascript">
+        var rCode = "";
+        var _famerId = 0;
+        $(function () {
+                    rCode = $_GET("code");
+                    if (rCode != null && rCode != "" && rCode.length > 0) {
+                        iniData();
+                    } else {
+                        iniUserControl();
+                    }
+        });
+    </script>
+
+</head>
+<body>
+    <div class="contianer">
+
+        <div class="pager-header-box-apply">
+            <h1>信息填报</h1>
+        </div>
+
+        <div class="pager-apply-content">
+
+            <div class="item-box border-radius">
+                <div class="weui-cells__title">基础信息</div>
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>姓名</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="baseName" placeholder="请输入真实姓名">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>性别</label></div>
+                        <div class="weui-cell__bd">
+                            <div class="weui-form">
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="baseSex" id="baseSex_1" value="0" type="radio" checked="checked">
+                                    <label for="baseSex_1">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>男</p></div>
+                                    </label>
+                                </div>
+
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="baseSex" id="baseSex_2" value="1" type="radio">
+                                    <label for="baseSex_2">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>女</p></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>身份证号</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="baseIdCard" placeholder="请输入身份证号">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>政治面貌</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="basePolitical" type="text" value="" readonly="" placeholder="请选择您的政治面貌">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label"><span class="red_dot">*</span>手机号码</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="baseTel" pattern="[0-9]*" placeholder="请输入手机号" type="tel">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>籍贯地址</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="baseJgAddr" type="text" placeholder="请选择您的籍贯地址" value="" readonly="" data-code="" data-codes="">
+                        </div>
+                    </div>
+                    <div class="weui-cell" style="display:none;">
+                        <div class="weui-cell__bd">
+                            <textarea class="weui-textarea" id="baseJgAddrInfo" placeholder="请输入详细小区、楼栋、门牌号" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>居住地址</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="baseJzAddr" type="text" placeholder="请选择您的居住地址" value="" readonly="" data-code="" data-codes="">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <textarea class="weui-textarea" id="baseJzAddrInfo" placeholder="请输入详细小区、楼栋、门牌号" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="item-box border-radius">
+                <div class="weui-cells__title">务工信息</div>
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>务工类型</label></div>
+                        <div class="weui-cell__bd">
+                            <div class="weui-form">
+
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="workType" id="workType_2" value="1" type="radio" checked="checked">
+                                    <label for="workType_2">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>长期</p></div>
+                                    </label>
+                                </div>
+
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="workType" id="workType_1" value="0" type="radio">
+                                    <label for="workType_1">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>短期</p></div>
+                                    </label>
+                                </div>
+
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="workType" id="workType_3" value="2" type="radio">
+                                    <label for="workType_3">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>不定</p></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>工作地址</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="workAddr" name="workAddr" type="text" placeholder="请选择您工作地址" value="" readonly="" data-code="" data-codes="">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>从事行业</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="workIndustry" name="workIndustry" type="text" value="" readonly="" placeholder="请选择您从事的行业">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">有何特长</label></div>
+                        <div class="weui-cell__bd">
+                            <textarea class="weui-textarea" id="workSpeciality" placeholder="请输入您工作特长" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">技术职称</label></div>
+                        <div class="weui-cell__bd">
+                            <textarea class="weui-textarea" id="workTechnicaltitle" placeholder="请输入您拥有的技术职称" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>特殊人群</label></div>
+                        <div class="weui-cell__bd">
+                            <div class="weui-form">
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="workIsSpecialGroup" id="workIsSpecialGroup_1" value="1" type="radio">
+                                    <label for="workIsSpecialGroup_1">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>是</p></div>
+                                    </label>
+                                </div>
+
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="workIsSpecialGroup" id="workIsSpecialGroup_2" value="0" type="radio" checked="checked">
+                                    <label for="workIsSpecialGroup_2">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>否</p></div>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>优抚对象</label></div>
+                        <div class="weui-cell__bd">
+                            <div class="weui-form">
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="workIsPreferentialGroup" id="workIsPreferentialGroup_1" value="1" type="radio">
+                                    <label for="workIsPreferentialGroup_1">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>是</p></div>
+                                    </label>
+                                </div>
+
+                                <div class="weui-form-li iblock">
+                                    <input class="weui-form-checkbox" name="workIsPreferentialGroup" id="workIsPreferentialGroup_2" value="0" type="radio" checked="checked">
+                                    <label for="workIsPreferentialGroup_2">
+                                        <i class="weui-icon-radio"></i>
+                                        <div class="weui-form-text"><p>否</p></div>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cell" id="workOrganizationRelationshipAddrBox" style="display:none;">
+                        <div class="weui-cell__hd"><label class="weui-label"><span class="red_dot">*</span>党组织关<br />&nbsp;系所在地</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="workOrganizationRelationshipAddr" name="workOrganizationRelationshipAddr" type="text" placeholder="请选择您党组织关系所在地" value="" readonly="" data-code="" data-codes="">
+                        </div>
+                    </div>
+                    <div class="weui-cell" id="workOrganizationRelationshipAddrInfoBox" style="display:none;">
+                        <div class="weui-cell__bd">
+                            <textarea class="weui-textarea" id="workOrganizationRelationshipAddrInfo" placeholder="请输入详细所在信息" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <a href="javascript:;" class="weui-btn bg-line-blue" id="btnSubmit">确认提交</a>
+        </div>
+
+    </div>
+    <style>
+        html {
+            background-color: #F8F8F8;
+        }
+    </style>
+</body>
+</html>

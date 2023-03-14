@@ -1,0 +1,142 @@
+body {
+    background: url("../images/blue-bg.jpg") no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+.logo {
+
+    margin:15px 30px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.platform-title {
+    font-size:48px;
+    color:#fff;
+    text-align: center;
+    line-height: 90px;
+    font-weight: bold;
+}
+.time-week {
+  position: absolute;
+    top:35px;
+    right: 60px;
+    font-size: 18px;
+}
+.time-change {
+
+    height: 38px;
+    line-height: 38px;
+    width: 280px;
+    margin:0 auto 25px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid #6371c8;
+    padding: 0 15px;
+    font-size: 16px;
+    position: relative;
+}
+.time-change::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top-color:#fff ;
+    right:15px;
+    top:15px;
+}
+.content-left {
+    width:700px;
+    float: left;
+    margin-left: 40px;
+    color:#fff;
+}
+
+h4.cur-month-title {
+   font-size: 36px;
+}
+.content-right {
+    float: left;
+    /*width:1820px ;*/
+    width: 1800px;
+}
+.c-r-left,.c-r-center,.c-r-right {
+  width: 640px;
+  float: left;
+    border: 1px solid #6371c8;
+    border-radius: 10px;
+    padding: 2px;
+}
+.c-r-center,.c-r-right {
+    width: 510px;
+}
+.common {
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+
+    color: #fff;
+    overflow: hidden;
+}
+
+.cur-month {
+    color:#fff;
+    height: 320px;
+    margin-top: 20px;
+}
+h4.c-r-title {
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 20%,rgba(255,255,255,0.2) 80%, rgba(255,255,255,0) 100%);
+}
+.marl-30 {
+    margin-left: 30px;
+}
+.marl-20 {
+    margin-left: 20px;
+}
+.marb-20 {
+    margin-bottom: 20px;
+}
+
+.mart-20 {
+    margin-top: 20px;
+}
+.bord-top {
+    border-top: 1px solid #6371c8;
+}
+.half- {
+    width: 50%;
+    float: left;
+
+}
+
+h4.list-title {
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    margin: 20px 0;
+}
+.item-list ul li {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    margin: 6px 20px 0;
+}
+.item-list ul li span {
+
+    padding: 0 10px;
+    background-image: linear-gradient(to right, rgba(0,84,255,1) 50%, rgba(66,193,234,1) 100% );
+    display: inline-block;
+    vertical-align: middle;
+    width: 82%;
+    border-radius: 5px;
+}
+.item-list ul li i {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 20px;
+    background: #34aaee;
+    border-radius: 5px;
+    margin-left: 10px;
+}

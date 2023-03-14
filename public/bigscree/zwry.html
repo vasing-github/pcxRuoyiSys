@@ -1,0 +1,144 @@
+﻿
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在外平昌人信息服务平台大数据分析系统</title>
+    <link rel="stylesheet" href="style/default.css?v=20201021">
+    <link rel="stylesheet" href="style/new-platform.css?v=20201021">
+    <link rel="stylesheet" href="style/ext.css?v=20201021" />
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.SuperSlide.2.1.3.js"></script>
+    <script src="js/layer/mobile/layer.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/echarts-tooltip-carousel.js?v=20201021"></script>
+    <script src="js/common.action.js"></script>
+    <script src="js/jquery.common.js?v=20201021"></script>
+    <script src="js/r-data-common.js"></script>
+</head>
+
+<body>
+    <div style="width:100%;height:100%;overflow:hidden;">
+        <h2 class="platform-title" style="height:107px;">
+            <span class="logo"><!--<img src="images/logo.png" height="80" alt="">--></span>在外平昌人信息服务平台大数据分析系统
+        </h2>
+        <div class="time-week" id="showTime"><!--2020年05月16日 星期二 20℃ 天气多云--></div>
+        <div class="time-change" style="display:none;">统计时间：<input id="hidMonth" onclick="WdatePicker({dateFmt:'yyyy年MM月',Mchanged:dateChange, ychanged:dateChange})" value="" style="background-color:transparent;color:#fff;width:160px;font-size:26px;" /></div>
+
+        <div class="bjl-db">
+
+            <ul class="overflow">
+                <li class="wrap">
+                    <span class="common">
+                        <span>今日返平：<i class="blue-" id="todayBackNum">0</i>人</span>
+                    </span>
+                </li>
+                <li class="wrap">
+                    <span class="common">
+                        <span>申报在外人员总数：<i class="blue-" id="totalNum">0</i>人</span>
+                    </span>
+                </li>
+                <li class="wrap">
+                    <span class="common">
+                        <span>尚在外人数：<i class="blue-" id="totalOutNum" style="color:#ff0000;">0</i>人，</span>
+                        <span>年度返乡总人次：<i class="blue-" id="totalBackNum">0</i>人次</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="overflow">
+            <div class="fl-l">
+                <div class="serves wrap">
+                    <div class="common" style="height:320px;">
+                        <h4>在外省份排行</h4>
+                        <ul class="phb" id="listHaveBackAreaSort">
+                            <li>① <span><em>新疆</em></span><i>300000人</i></li>
+                            <li>② <span><em>北京</em></span><i>300人</i></li>
+                            <li>③ <span><em>河南</em></span><i>300人</i></li>
+                            <li>④ <span><em>新疆</em></span><i>300人</i></li>
+                            <li>⑤ <span><em>西藏</em></span><i>300人</i></li>
+                            <li>⑤ <span><em>西藏</em></span><i>300人</i></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item-list pig wrap top25">
+                    <div class="common" style="height:450px;" id="cshyBox">
+
+                    </div>
+                </div>
+            </div>
+            <div class="map wrap" style="height: 805px;">
+                <div class="common">
+                    <h4>在外区域分布</h4>
+                    <div id="mapcontainer" style="height:750px;"></div>
+                </div>
+            </div>
+            <div class="fl-3">
+                <div class="cur-month wrap">
+                    <div class="common">
+                        <h4>在平区域分布</h4>
+                        <div id="bjn2" style="height: 750px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fl-4">
+
+                <div class="item-list pig wrap">
+                    <div class="common" id="fpqyBox" style="height:320px;">
+
+                    </div>
+                </div>
+
+                <div class="showMsg wrap top25">
+                    <div class="common" id="nfpBox" style="height:450px;">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="js/r-data-listsort.js"></script>
+    <script src="js/e-cshy.js"></script>
+    <script src="js/e-fpqy.js"></script>
+    <script src="js/e-nfpry.js"></script>
+    <script src="js/e-map.js"></script>
+    <script src="js/e-town-map.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var date = new Date();
+            var year = $.GetQueryString("y");
+            var month = $.GetQueryString("m");
+            if (!!!year) {
+                year = date.getFullYear();
+            }
+            if (!!!month) {
+                month = date.getMonth() + 1;
+            }
+            $("#hidMonth").val(year + "年" + month + "月");
+            $("#showTime").showDateTime();
+            loadData();
+            window.setInterval(loadData, 1000 * 60 * 10);
+            $(window).resize(function () {
+                //延迟执行,防止多次触发
+                setTimeout(function () {
+                    location.href = location.href;
+                }, 100);
+            });
+        })
+
+        function loadData() {
+            loadTotalNum();
+            intTownMap();
+            intChinaMap();
+            intCSHY();
+            intNFP();
+        }
+    </script>
+</body>
+</html>

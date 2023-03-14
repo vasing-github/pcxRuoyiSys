@@ -1,0 +1,265 @@
+﻿@media only screen and (min-width: 280px) {
+    html {
+        font-size: 11.947px !important;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    html {
+        font-size: 13.655px !important;
+    }
+}
+
+@media only screen and (min-width: 360px) {
+    html {
+        font-size: 15.36px !important;
+    }
+}
+
+@media only screen and (min-width: 375px) {
+    html {
+        font-size: 16px !important;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    html {
+        font-size: 17.54px !important;
+    }
+}
+
+@media only screen and (min-width: 414px) {
+    html {
+        font-size: 17.68px !important;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    html {
+        font-size: 20.48px !important;
+    }
+}
+
+@media only screen and (min-width: 540px) {
+    html {
+        font-size: 23.04px !important;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    html {
+        font-size: 32.768px !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    html {
+        font-size: 43.7px !important;
+    }
+}
+
+.contianer {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.pager-header-box-index {
+    width: 23.4375rem;
+    height: 11.5625rem;
+    background: url(../images/index_bg.jpg) no-repeat center top;
+    background-size: contain;
+    margin: 0 auto;
+}
+
+.pager-index-nav {
+    width: 21.1875rem;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 1.5625rem;
+}
+
+    .pager-index-nav ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .pager-index-nav ul li {
+            list-style-type: none;
+            float: right;
+            width: 10.21875rem;
+            height: 5.71875rem;
+            background: linear-gradient(to right bottom,#3094f2,#2b82ec,#215be1);
+        }
+
+            .pager-index-nav ul li .weui-grid__icon {
+                float: left;
+                margin-top: 2.1rem;
+                margin-left: 1.3rem;
+            }
+
+                .pager-index-nav ul li .weui-grid__icon img {
+                    width: 1.40625rem;
+                    height: 1.375rem;
+                    display: block;
+                }
+
+            .pager-index-nav ul li .weui-grid__label {
+                font-size: 1.3125rem;
+                font-family: "Microsoft YaHei";
+                color: #fff;
+                margin-top: 1.7rem;
+            }
+
+            .pager-index-nav ul li:first-child {
+                width: 10.1875rem;
+                height: 12.3rem;
+                float: left;
+            }
+
+                .pager-index-nav ul li:first-child .weui-grid__icon {
+                    margin: 0 auto;
+                    margin-top: 3.375rem;
+                    float: none;
+                }
+
+                    .pager-index-nav ul li:first-child .weui-grid__icon img {
+                        width: 1.84375rem;
+                        height: 1.875rem;
+                        display: block;
+                    }
+
+                .pager-index-nav ul li:first-child .weui-grid__label {
+                    margin-top: 0.8125rem;
+                }
+
+            .pager-index-nav ul li:last-child {
+                margin-top: 0.78rem;
+            }
+
+.pager-header-box-apply {
+    width: 23.4375rem;
+    height: 10.46875rem;
+    background: url(../images/apply_bg.jpg) no-repeat center top;
+    background-size: contain;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+    .pager-header-box-apply h1 {
+        color: #fff;
+        font-size: 1.4375rem;
+        font-family: "Microsoft YaHei";
+        font-weight: normal;
+        margin: 5.4rem 0px 0px 8.75rem;
+    }
+
+.pager-apply-content {
+    width: 21.1875rem;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    padding-bottom: 3.84rem;
+}
+
+    .pager-apply-content .item-box {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        background: #fff;
+        margin-bottom: 1.75rem;
+    }
+
+    .pager-apply-content .weui-cells__title {
+        color: #363636;
+        font-family: "Microsoft YaHei";
+        font-size: 1rem;
+        display: block;
+        margin: 0 auto;
+        line-height: 2.5625rem;
+        height: 2.5625rem;
+        width: 4.3125rem;
+        margin-top: 0.34375rem;
+        font-weight: 600;
+    }
+
+    .pager-apply-content .weui-label {
+        font-weight: normal;
+    }
+
+    .pager-apply-content .weui-form-li {
+        margin: 0px 20px 0px 0px;
+    }
+
+.bg-line-blue {
+    background: linear-gradient(to right,#3094f2,#2b82ec,#215be1);
+    border-radius: 2rem;
+}
+
+    .bg-line-blue:after {
+    }
+
+.page-success-box {
+    width: 11.4375rem;
+    height: 14.84375rem;
+    background: url(../images/success.png) no-repeat center center;
+    background-size: contain;
+    margin: 0 auto;
+    margin-top: 7.5625rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+/*.check-box .weui-cells:before {
+    border: 0px;
+}
+*/
+.check-box .weui-cells {
+    margin-bottom: 1.17647059em
+}
+
+/*    .check-box .weui-cells:after {
+        border: 0px;
+    }*/
+
+
+.pager-view-content {
+    width: 21.1875rem;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    padding-bottom: 3.84rem;
+}
+
+    .pager-view-content .item-box {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        background: #fff;
+        margin-bottom: 1.75rem;
+    }
+
+    .pager-view-content .weui-cells__title {
+        color: #363636;
+        font-family: "Microsoft YaHei";
+        font-size: 1rem;
+        display: block;
+        margin: 0 auto;
+        line-height: 2.5625rem;
+        height: 2.5625rem;
+        margin-top: 0.34375rem;
+        font-weight: 600;
+    }
+
+    .pager-view-content .weui-label {
+        font-weight: normal;
+    }
+
+    .pager-view-content .weui-form-li {
+        margin: 0px 20px 0px 0px;
+    }
+    .pager-view-content input, .pager-view-content textarea{
+        outline:none;
+    }
+.red_dot {
+    color:#ff0000;
+}

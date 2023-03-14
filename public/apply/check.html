@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>信息验证-在外平昌人信息服务平台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link href="css/weui.css" rel="stylesheet" />
+    <link href="css/weuix.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/zepto.min.js"></script>
+    <script src="js/zepto.weui.js"></script>
+    <script src="js/picker.city.pc.js"></script>
+    <script src="js/common.action.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var viewType = $_GET("v");
+            $(document).on("click", "#btnSubmit", function () {
+                var userName = $("#tName").val();
+                var userIdCard = $("#tIdCard").val();
+                if (userName == "") {
+                    $.toptip("姓名不能为空");
+                    return false;
+                }
+                if (userIdCard == "") {
+                    $.toptip("身份证号不能为空");
+                    return false;
+                }
+                if (!is_id(userIdCard)) {
+                    $.toptip("请填写正确的身份证号码");
+                    return false;
+                }
+
+                var postUrl = getPostUrl("view");
+                var postData = {
+                    famerCard: userIdCard,
+                    pageNum: 1,
+                    pageSize: 1,
+                    famerName: userName
+                };
+                var successBack = function (result) {
+                    $.hideLoading();
+                    if (result != null && result.code == 200 && result.rows != null && result.total > 0) {
+                        if (viewType == "view") {
+                            location.href = "view.html?code=" + userIdCard;
+                        }
+                        else {
+                            location.href = "form.html?code=" + userIdCard;
+                        }
+                    }
+                    else {
+                        $.toast("数据校验失败", "forbidden");
+                    }
+                }
+                var errorBack = function (XMLHttpRequest, textStatus, errorThrown) {
+                    $.hideLoading();
+                    $.toast("数据校验失败", "forbidden");
+                }
+                ajaxPost(postUrl, postData, successBack, errorBack,"数据校验中","get");
+            })
+            //解决表单控件不能回弹 只有微信ios有这个问题
+            $("input,select,textarea").blur(function () {
+                setTimeout(() => {
+                    const scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+                    window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+                }, 100);
+            })
+        });
+    </script>
+    <style>
+        html {
+            background-color: #F8F8F8;
+        }
+    </style>
+</head>
+<body>
+    <div class="contianer">
+
+        <div class="pager-header-box-apply">
+            <h1>信息验证</h1>
+        </div>
+
+        <div class="pager-apply-content check-box">
+
+            <div class="item-box border-radius">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" placeholder="请输入真实姓名" id="tName" name="tName">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">身份证号</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" placeholder="请输入身份证号" id="tIdCard" name="tIdCard">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="javascript:;" class="weui-btn bg-line-blue" style="width:11rem;" id="btnSubmit">提交验证</a>
+        </div>
+
+    </div>
+</body>
+</html>
